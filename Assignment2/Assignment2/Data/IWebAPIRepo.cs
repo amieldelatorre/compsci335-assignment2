@@ -11,5 +11,6 @@ namespace Assignment2.Data
         public bool ValidLogin(string userName, string password);
         public User GetUserByUserName(string userName);
         public string RegisterUser(User user);
+        public Order AddOrder(Order order);
     }
 }

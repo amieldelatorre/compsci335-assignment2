@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assignment2.Dtos;
 using Assignment2.Models;
 
 
@@ -42,6 +43,19 @@ namespace Assignment2.Data
             }
             else
                 return "Username not available.";
+        }
+
+        public Order GetOrder(int Id)
+        {
+            Order order = _dbContext.Orders.FirstOrDefault(e => e.Id == Id);
+            return order;
+        }
+
+        public Order AddOrder(Order order)
+        {
+            _dbContext.Orders.Add(order);
+            _dbContext.SaveChanges();
+            return GetOrder(order.Id);
         }
     }
 }
